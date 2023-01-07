@@ -1,0 +1,82 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white" >
+          User List
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr class="">
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userArray; let i=index">
+                <td>{{i+1}}</td>
+                <td  (dblclick)="onEdit(user,'name')">
+                  <div class="row" *ngIf="user.editFieldName =='name' ">
+                    <div class="col-10">
+                      <input type="text" [(ngModel)]="user.name" name="name" class="form-control">
+                    </div>
+                    <div class="col-2 text-center ">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      <i class="fa fa-times" aria-hidden="true" (click)="close(user)"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="user.editFieldName !=='name'">
+                    {{user.name}}
+                  </div>
+                </td>
+                <td (dblclick)="onEdit(user,'username')">
+                  <div *ngIf="user.editFieldName =='username'">
+                    <input type="text" [(ngModel)]="user.username" name="username" class="form-control">
+                  </div>
+                  <div *ngIf="user.editFieldName !=='username'">
+                    {{user.username}}
+                  </div>
+
+                </td >
+                <td (dblclick)="onEdit(user,'email')">
+                  <div *ngIf="user.editFieldName =='email'">
+                    <input type="text" [(ngModel)]="user.email" name="email" class="form-control">
+                  </div>
+                  <div *ngIf="user.editFieldName !=='email'">
+                    {{user.email}}
+                  </div>
+
+                </td>
+                <td (dblclick)="onEdit(user,'phone')">
+                  <div *ngIf="user.editFieldName =='phone'">
+                    <input type="text" [(ngModel)]="user.phone" name="phone" class="form-control">
+                  </div>
+                  <div *ngIf="user.editFieldName !=='phone'">
+                    {{user.phone}}
+                  </div>
+
+                </td>
+                <td (dblclick)="onEdit(user,'website')">
+                  <div *ngIf="user.editFieldName =='website'">
+                    <input type="text" [(ngModel)]="user.website" name="website" class="form-control">
+                  </div>
+                  <div *ngIf="user.editFieldName !=='website'">
+                    {{user.website}}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
